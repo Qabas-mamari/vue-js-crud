@@ -1,26 +1,41 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app">
+    <div class="ui fixed inverted menu vue-color">
+      <div class="ui container">
+        <a href="#" class="header item">Vue Js CRUD with Laravel API</a>
+      </div>
+    </div>
+
+    <div class="ui main container">
+      <MyForm />
+      <CustomerList />
+      
+    </div>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import MyForm from './components/MyForm.vue';
+import CustomerList from './components/CustomerList.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    MyForm,
+    CustomerList
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+.vue-color {
+  background: #41b883 !important;
+}
+.main.container{
   margin-top: 60px;
+}
+.submit-button{
+  margin-top: 24px !important;
+  float: right;
 }
 </style>
