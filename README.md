@@ -20,5 +20,9 @@ npm run build
 npm run lint
 ```
 
+### after Design the UI, we install axios  
+```
+npm install axios --save
+```
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).

@@ -11,7 +11,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                   <Customer />
+                   <Customer 
+                   v-for="customer in customers" 
+                   :key="customer.id" 
+                   :customer = "customer"/>
                 </tbody>
             </table>
         </div>
@@ -26,6 +29,11 @@ import Customer from './Customer.vue';
         name: "CustomerList",
         components: {
             Customer
+        }, 
+        props:{
+            customers:{
+                type: Array
+            }
         }
     }
 </script>
