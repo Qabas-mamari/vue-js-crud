@@ -9,7 +9,10 @@
     <div class="ui main container">
       <MyForm />
       <Loader v-if="loader"/>
-      <CustomerList :customers = "customers" />
+      <CustomerList 
+        :customers = "customers" 
+        @onDelete="onDelete"
+      />
 
     </div>
   </div>
@@ -44,6 +47,23 @@ export default {
         this.customers = data.data;
         this.loader = false;
       });
+    },
+
+    deleteCustomer(id) {
+      this.loader = true;
+      axios
+        .delete(`${this.url}/${id}`)
+        .then(() => {
+          this.getCustomers();
+        })
+        .catch(e => {
+          alert(e);
+        });
+    },
+
+    onDelete(id){
+      // window.console.log("app delete " + id);
+      this.deleteCustomer();
     }
   },
   created(){

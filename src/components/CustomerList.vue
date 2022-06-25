@@ -11,10 +11,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                   <Customer 
-                   v-for="customer in customers" 
-                   :key="customer.id" 
-                   :customer = "customer"/>
+                    <Customer
+                        v-for="customer in customers" 
+                        :key="customer.id" 
+                        :customer="customer"
+                        @onDelete="onDelete" 
+                    />
                 </tbody>
             </table>
         </div>
@@ -25,20 +27,25 @@
 <script>
 import Customer from './Customer.vue';
 
-    export default{
-        name: "CustomerList",
-        components: {
-            Customer
-        }, 
-        props:{
-            customers:{
-                type: Array
-            }
+export default {
+    name: "CustomerList",
+    components: {
+        Customer
+    },
+    props: {
+        customers: {
+            type: Array
+        }
+    },
+    methods: {
+        onDelete(id) {
+            // window.console.log("customer list delete" + id);
+            this.$emit("onDelete", id);
+
         }
     }
+};
 </script>
 
 
-<style scoped>
-
-</style>
+<style scoped></style>
